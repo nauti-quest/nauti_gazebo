@@ -159,6 +159,9 @@ int main(int argc, char** argv)
   // begin the PID thread
   std::thread pid_thread;
 
+  // start traversing
+  v2_.is_traversing_ = true;
+
   // main loop
   while (do_not_quit_ && ros::ok())
   {

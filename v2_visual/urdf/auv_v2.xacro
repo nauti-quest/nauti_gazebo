@@ -78,7 +78,7 @@
       <thruster>
         <effort>40</effort>
         <name>m_star</name>
-        <map>>0 0 -1 0 0 0</map>
+        <map>0 0 -1 0 0 0</map>
       </thruster>
       <thruster>
         <effort>40</effort>
