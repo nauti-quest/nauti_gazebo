@@ -202,3 +202,7 @@ void signalHandler(int signum)
 {
   ROS_INFO_STREAM("[!] Press X to quit\n");
 }
+
+// What aspect of robotics would i want to get into
+// Learn every tool possible
+//  
