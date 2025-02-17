@@ -4,7 +4,8 @@
 
   <xacro:property name="cam_origin_offset" value="0 0 0"/>
   <xacro:property name="camera_dimensions" value="0.01 0.01 0.01"/>
-
+  <xacro:property name="pi" value="3.14159265359" />
+  
   <xacro:property name="depth_origin_offset" value="0 0 0.11"/>
   <xacro:property name="depth_dimensions" value="0.005 0.005 0.002"/> 
 
@@ -78,7 +79,7 @@
       <thruster>
         <effort>40</effort>
         <name>m_star</name>
-        <map>0 0 -1 0 0 0</map>
+        <map>>0 0 -1 0 0 0</map>
       </thruster>
       <thruster>
         <effort>40</effort>
@@ -118,11 +119,11 @@
   <link name="body_link">
     <visual>
       <origin
-          xyz="0 0 0"
+          xyz="-0.4 0.975 -0.475"
           rpy="0 0 0" />
       <geometry>
           <mesh
-            filename="package://v2_visual/meshes/body_visual.STL"/>
+            filename="package://v2_visual/meshes/base_link.STL" scale="1.5 1.5 1.5"/>
       </geometry>
     </visual>
     <collision>

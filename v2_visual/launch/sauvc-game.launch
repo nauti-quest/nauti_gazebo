@@ -9,7 +9,7 @@
 	<arg name="gui" value="true"/>
 	<arg name="paused" value="true"/>
 	<arg name="use_sim_time" value="true"/>
-	<arg name="world" value="$(find v2_visual)/worlds/herkules_ship_wreck.world"/>
+	<arg name="world" value="$(find v2_visual)/worlds/lake.world"/>
 		
 	<!-- gazebo ros launcher -->
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -51,7 +51,7 @@
       </node>
 	</group>
 	
-	<!-- <group ns="misc_items">
+	<group ns="misc_items">
       	<param name="q_gate_description" 
 		 command="$(find xacro)/xacro $(find v2_visual)/urdf/q_gate.xacro" />
 
@@ -129,7 +129,7 @@
 				args="-urdf -model task4_ball_2 -param task4_ball_desc -x -4 -y 19.98 -z -1.2"/>
 		</group>	
 		 	
-	</group> -->
+	</group>
 	
 	
 </launch>

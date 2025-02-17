@@ -10,6 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
               sensor_msgs 
               geometry_msgs 
               cv_bridge
+              joy
               nav_msgs
               darknet_ros_msgs)
 catkin_package(INCLUDE_DIRS include
@@ -58,3 +59,4 @@ set(UWV_DEPENDENCIES ${COMMON_SRC_FILES}/terminal_getch.cpp
 add_subdirectory(scripts/vision)
 add_subdirectory(src/rov_ctrl)
 add_subdirectory(src/sauvc_tasks)
+add_subdirectory(src/joy_ctrl)

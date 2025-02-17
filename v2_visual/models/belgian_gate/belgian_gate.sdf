@@ -1,0 +1,29 @@
+<sdf version="1.4">
+  <world name="munkholmen">
+    <!-- ...existing code... -->
+
+    <!-- Include the STL model directly -->
+    <model name="belgian_gate">
+      <static>true</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/nautiquest/nauti_ws/src/sauvc-simulations/v2_visual/meshes/belgian_gate.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/nautiquest/nauti_ws/src/sauvc-simulations/v2_visual/meshes/belgian_gate.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+      </link>
+      <pose>1 2 3 0 0 0</pose> <!-- Adjust the pose as needed -->
+    </model>
+
+    <!-- ...existing code... -->
+  </world>
+</sdf>
