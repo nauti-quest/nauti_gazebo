@@ -2,7 +2,6 @@
 .vscode/
 .idea/
 .bag
-dso_dataset
 
 # Vagrant
 .vagrant/
