@@ -12,9 +12,9 @@
         <param name="axis_heave" value="4"/>
         <param name="axis_yaw" value="3"/>
         <!-- Scale factors -->
-        <param name="surge_scale" value="1.0"/>
-        <param name="sway_scale" value="1.0"/>
-        <param name="heave_scale" value="0.1"/>
-        <param name="yaw_scale" value="2.0"/>
+        <param name="surge_scale" value="75.0"/>
+        <param name="sway_scale" value="50.0"/>
+        <param name="heave_scale" value="5.0"/>
+        <param name="yaw_scale" value="5.0"/>
     </node>
 </launch>

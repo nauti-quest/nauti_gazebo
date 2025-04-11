@@ -147,9 +147,18 @@
 	</include>   
 	
     <!-- Start point -->
-    <include>
+    <!-- <include>
 		<uri>model://start_point</uri>
-	</include>
+	</include> -->
+    <include>
+      <uri>model://traffic_cone</uri>
+      <pose>0 -15 -2 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://herkules_ship_wreck</uri>
+      <pose>0 10 -2 0 0 0</pose>
+    </include>
 
     <!-- Plugins -->
     <plugin name="freefloating_gazebo_fluid" filename="libfreefloating_gazebo_fluid.so">

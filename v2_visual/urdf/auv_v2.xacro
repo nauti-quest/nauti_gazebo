@@ -79,7 +79,7 @@
       <thruster>
         <effort>40</effort>
         <name>m_star</name>
-        <map>>0 0 -1 0 0 0</map>
+        <map>0 0 -1 0 0 0</map>
       </thruster>
       <thruster>
         <effort>40</effort>
@@ -264,7 +264,7 @@
 
   <!-- Sensor: Down Camera -->
   <link name="d_cam">
-    <collision>
+    <collision>1.5708
       <origin xyz="${cam_origin_offset}" rpy="0 0 0"/>
       <geometry>
         <box size="${camera_dimensions}"/>

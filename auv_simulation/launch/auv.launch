@@ -6,7 +6,7 @@
 	
   <!-- urdf xml robot description loaded on the Parameter Server-->
   <param name="robot_description" 
-		 command="$(find xacro)/xacro --inorder $(arg model)" /> 
+		 command="$(find xacro)/xacro $(arg model)" /> 
 
   <node name="joint_state_publisher" 
 		pkg="joint_state_publisher" 

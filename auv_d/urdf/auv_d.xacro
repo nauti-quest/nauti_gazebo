@@ -11,7 +11,7 @@
 				<compensation>
 					1.0				
 				</compensation>
-			</buoyancy>                
+			</buoyancy>                z
         </link>
         
         <joint name="${name}" type="fixed">

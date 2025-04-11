@@ -39,9 +39,10 @@ public:
         nh_.param("sway_scale", sway_scale_, 1.0);
         nh_.param("heave_scale", heave_scale_, 1.0);
         nh_.param("yaw_scale", yaw_scale_, 1.0);
+
         
         // Initialize the UWV
-        v2_.initUWV(nh_, 20.0, 0.4);
+        v2_.initUWV(nh_, 40.0, 0.4);
         
         // Subscribe to joystick inputs
         joy_sub_ = nh_.subscribe<sensor_msgs::Joy>("/joy", 10, 
@@ -51,7 +52,7 @@ public:
         v2_.set_xyz_[0] = 0;
         v2_.set_xyz_[1] = 0;
         v2_.set_xyz_[2] = 0.7;
-        v2_.set_orient_.yaw = 0.0;
+        v2_.set_orient_.yaw = 0;
         is_traversing_ = false;
         
         ROS_INFO_STREAM("ROV Joystick Controller Initialized");
@@ -87,9 +88,10 @@ public:
         
         // Update motion commands
         v2_.set_xyz_[0] += joy->axes[axis_surge_] * surge_scale_;  // Surge
-        v2_.set_xyz_[1] += joy->axes[axis_sway_] * sway_scale_;    // Sway
+        v2_.set_xyz_[1] -= joy->axes[axis_sway_] * sway_scale_;    // Sway: Gives negative values
         v2_.set_xyz_[2] -= joy->axes[axis_heave_] * heave_scale_; // Heave: Gives negative valuesj
         
+        ROS_INFO_STREAM("Heave: " << v2_.set_xyz_[2] << " | Surge: " << v2_.set_xyz_[0] << " | Sway: " << v2_.set_xyz_[1]);
         // Update yaw
         double yaw_command = -joy->axes[axis_yaw_] * yaw_scale_;
         v2_.set_orient_.yaw += yaw_command;
@@ -101,7 +103,8 @@ public:
         else if (v2_.set_orient_.yaw <= -179.9) {
             v2_.set_orient_.yaw = 180;
         }
-        
+
+        ROS_INFO_STREAM("Yaw command: " << v2_.set_orient_.yaw << " temporary yaw: " << v2_.cur_orient_.yaw << " yaw_command: " << yaw_command);
         // Ensure heave doesn't go negative (same as original)
         if (v2_.set_xyz_[2] < 0) {
             v2_.set_xyz_[2] = 0;
