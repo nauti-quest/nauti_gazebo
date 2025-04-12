@@ -11,7 +11,6 @@ rosrun v2_control rov_ctrl
 - Uses vectored thruster fusion algorithm. More information can be found [here](../../../docs/On-thruster-configuration.md).
 - PID controller for heave and yaw have been implemented for this node. The PID gain values can be changed in the `.yaml` file located in `/path/to/v2_control/config`. The PID gain values are loaded into the parameter server and the gain values will change with `rosparam set` command while the `rov_ctrl` node is running.
 - **Known issue**: Sometimes after executing the *Start/stop traversing* command in the node, the vehicle snaps back to the origin. If it happens, just re-start the whole simulation, everything should be fine. This bug has been eliminated the issue didn't arise for many test runs as per the author's knowledge; but if it occurs, please inform.
-- Video demonstration of this node: [link](https://youtu.be/kQNYnM7btyY)
 
 ## Understanding implementation of stoppable and reusable threads
 The following snippet forms the core that is responsible for:
