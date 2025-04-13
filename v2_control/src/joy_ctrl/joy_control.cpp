@@ -42,8 +42,8 @@ public:
         // Load scale factors
         nh_.param("surge_scale", surge_scale_, 1.0);
         nh_.param("sway_scale", sway_scale_, 1.0);
-        nh_.param("heave_scale", heave_scale_, 0.1);
-        nh_.param("yaw_scale", yaw_scale_, 20.0);
+        nh_.param("heave_scale", heave_scale_, 1.0);
+        nh_.param("yaw_scale", yaw_scale_, 1.0);
 
         
         // Initialize the UWV
@@ -104,8 +104,8 @@ public:
         // Update positions based on velocities
         v2_.set_xyz_[0] = surge_velocity_;  // Direct velocity control
         v2_.set_xyz_[1] = sway_velocity_;
-        v2_.set_xyz_[2] += heave_velocity_ * 0.02;  // Integrate for depth (0.02s = 50Hz)
-        v2_.set_orient_.yaw += yaw_velocity_ * 0.02;  // Integrate for heading
+        v2_.set_xyz_[2] = heave_velocity_;  // Integrate for depth (0.02s = 50Hz)
+        v2_.set_orient_.yaw = yaw_velocity_;  // Integrate for heading
         
         // Keep the same boundary checks
         if (v2_.set_xyz_[2] < 0) {

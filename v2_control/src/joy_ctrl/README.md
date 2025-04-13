@@ -9,6 +9,13 @@ roslaunch v2_control joy_teleop.launch
 
 This automatically launches `joy` node for interfacing between the computer and the joystick, and the `joy_control.cpp` node which would convert the inputs from the joystick into command velocity values for the gazebo to decipher.
 
+To run this node without PID controllers, switch to the no-pid branch using the following command:
+```bash 
+git checkout no-pid
+catkin build
+```
+After building the new package, launch the joy_teleop file like usual.
+
 ## Understanding implementation of stoppable and reusable threads
 The following snippet forms the core that is responsible for:
 - Executing PID controller on a separate thread; continuously without any interrupts
