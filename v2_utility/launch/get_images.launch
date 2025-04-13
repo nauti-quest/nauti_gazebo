@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <launch>
-	<arg name="bag" default="sauvc_simpleRun.bag"/>
+	<arg name="bag" default="simpleRun.bag"/>
 	<arg name="use_frnt" default="false"/>
 
 	<node 

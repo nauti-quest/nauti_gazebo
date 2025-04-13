@@ -79,6 +79,5 @@ set(UWV_DEPENDENCIES ${COMMON_SRC_FILES}/terminal_getch.cpp
 
 add_subdirectory(scripts/vision)
 add_subdirectory(src/rov_ctrl)
-add_subdirectory(src/sauvc_tasks)
 add_subdirectory(src/joy_ctrl)
 add_subdirectory(src/nav_ctrl)

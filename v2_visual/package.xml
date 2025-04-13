@@ -2,10 +2,10 @@
   <name>v2_visual</name>
   <version>0.1.1</version>
 
-  <description>This package contains visualizing files for the simulation of AUV_v2.</description>
-  <author email="auv.society@iiitdm.ac.in">Mate</author>
+  <description>This package contains visualizing files for the simulation of NautiQuest.</description>
+  <author email="nautiquest80@gmail.com">Mate</author>
 
-  <maintainer email="auv.society@iiitdm.ac.in">Mate</maintainer>
+  <maintainer email="nautiquest80@gmail.com">Mate</maintainer>
 
   <license>BSD</license>
 

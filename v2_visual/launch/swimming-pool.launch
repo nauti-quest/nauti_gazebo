@@ -44,7 +44,7 @@
 		type="spawn_model" 
 		respawn="false"
 		output="screen"
-    	args="-urdf -model $(arg model_name) -param robot_description -x 11.5 -y 0 -z $(arg auv_z) -Y -1.57"
+    	args="-urdf -model $(arg model_name) -param robot_description -x 11.5 -y 0 -z $(arg auv_z) -Y 3.14"
 		if="$(eval arg('round')==3)" /> 
 
       <!-- start robot state publisher -->
@@ -58,26 +58,7 @@
       </node>
 	</group>
 	
-	<!-- <group ns="misc_items">
-      	<param name="q_gate_description" 
-		 command="$(find xacro)/xacro $(find v2_visual)/urdf/q_gate.xacro" />
-
-    	<node name="spawn_q_gate" 
-			pkg="gazebo_ros"
-			type="spawn_model" 
-			respawn="false"
-			output="screen"
-			args="-urdf -model q_gate -param q_gate_description -x 8.5 -y -15 -Y 1.5708"/> 
-	
-		<param name="task1_gate_desc" 
-			command="$(find xacro)/xacro $(find v2_visual)/urdf/task1_gate.xacro" />
-
-		<node name="spawn_task1_gate" 
-			pkg="gazebo_ros"
-			type="spawn_model" 
-			respawn="false"
-			output="screen"
-			args="-urdf -model task1_gate -param <group ns="misc_items">
+	<group ns="misc_items">
       	<param name="q_gate_description" 
 		 command="$(find xacro)/xacro $(find v2_visual)/urdf/q_gate.xacro" />
 
@@ -155,65 +136,5 @@
 				args="-urdf -model task4_ball_2 -param task4_ball_desc -x -4 -y 19.98 -z -1.2"/>
 		</group>	
 		 	
-	</group>task1_gate_desc -x 0.5 -y 6.4 -z -0.5"/> 
-			
-		<param name="task1_flare_desc" 
-			command="$(find xacro)/xacro $(find v2_visual)/urdf/task1_flare.xacro" />
-
-		<node name="spawn_task1_flare" 
-			pkg="gazebo_ros"
-			type="spawn_model" 
-			respawn="false"
-			output="screen"
-			args="-urdf -model task1_flare -param task1_flare_desc -x 4.5 -y 6.3 -z -2"/> 	
-	
-		<param name="task2_mat_desc" 
-			command="$(find xacro)/xacro $(find v2_visual)/urdf/task2_mat.xacro" />
-
-		<node name="spawn_task2_mat" 
-			pkg="gazebo_ros"
-			type="spawn_model" 
-			respawn="false"
-			output="screen"
-			args="-urdf -model task2_mat -param task2_mat_desc -x -10 -y 1 -z -2 -Y 1.5708"/>
-		
-		<param name="task4_pinger_desc" 
-			command="$(find xacro)/xacro $(find v2_visual)/urdf/task4_pinger.xacro" />
-
-		<node name="spawn_task4_pinger" 
-			pkg="gazebo_ros"
-			type="spawn_model" 
-			respawn="false"
-			output="screen"
-			args="-urdf -model task4_pinger -param task4_pinger_desc -x -0.99 -y 14.99 -z -2"/> 	
-	
-		<param name="task4_no_pinger_desc" 
-			command="$(find xacro)/xacro $(find v2_visual)/urdf/task4_no_pinger.xacro" />
-
-		<node name="spawn_task4_no__pinger" 
-			pkg="gazebo_ros"
-			type="spawn_model" 
-			respawn="false"
-			output="screen"
-			args="-urdf -model task4_no_pinger -param task4_no_pinger_desc -x -3.99 -y 19.99 -z -2"/>
-		
-		<group if="$(arg show_task_balls)">
-			<param name="task4_ball_desc" 
-			command="$(find xacro)/xacro $(find v2_visual)/urdf/task4_ball.xacro" />
-			<node name="spawn_task4_ball_1" 
-				pkg="gazebo_ros"
-				type="spawn_model" 
-				respawn="false"
-				output="screen"
-				args="-urdf -model task4_ball_1 -param task4_ball_desc -x -1 -y 14.98 -z -1.2"/>
-			<node name="spawn_task4_ball_2" 
-				pkg="gazebo_ros"
-				type="spawn_model" 
-				respawn="false"
-				output="screen"
-				args="-urdf -model task4_ball_2 -param task4_ball_desc -x -4 -y 19.98 -z -1.2"/>
-		</group>	
-		 	
-	</group> -->
+	</group>
 </launch>
-

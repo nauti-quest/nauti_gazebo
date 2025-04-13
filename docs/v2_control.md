@@ -6,7 +6,6 @@ This package contains files that control the NautiQuest vehicle inside the world
 1. [include](../v2_control/include/README.md)
 2. [common](../v2_control/src/common/README.md)
 3. [rov_ctrl](../v2_control/src/rov_ctrl/README.md)
-4. [sauvc_tasks](../v2_control/src/sauvc_tasks/README.md)
 ---
 
 Types of control options currently present:
@@ -21,6 +20,7 @@ Types of control options currently present:
 * requires **v2_visual**
 * requires **v2_utility**
 * requires **darknet_ros**
+* requires **freefloating_gazebo**
 
 ## Commands
 1. To send manual keyboard controls

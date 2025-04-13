@@ -1,5 +1,4 @@
-
-# simulations
+# Nauti_Gazebo
 
 This folder contains all the ROS packages for simulating the AUV. The packages are:
 1. auv_simulation
