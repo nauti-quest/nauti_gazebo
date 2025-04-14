@@ -3,12 +3,12 @@
   <name>v2_dataset</name>
   <version>0.1.1</version>
   <description>
-    This package contains ROSBags and image dataset obtained from SAUVC simulation to test SLAM algorithms in non-realtime
+    This package contains ROSBags and image dataset obtained from simulation to test SLAM algorithms in non-realtime
   </description>
 
-  <author email="auv.society@iiitdm.ac.in">Mate</author>
+  <author email="nautiquest80@gmail.com">Mate</author>
 
-  <maintainer email="auv.society@iiitdm.ac.in">Mate</maintainer>
+  <maintainer email="nautiquest80@gmail.com">Mate</maintainer>
 
   <license>BSD</license>
 

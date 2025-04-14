@@ -1,16 +1,20 @@
-# rov_ctrl
+# joy-ctrl
+
+This node is to support joystick teleoperation of the AUV in ROV mode. This 
 
 ## To execute
+```bash
+roslaunch v2_control joy_teleop.launch
 ```
-rosrun v2_control rov_ctrl
-```
-- Configure parameters for the ROV mode in the `config_ROV.h` file.
 
-## About
-- This node is used to control the AUV_v2 vehicle in ROV mode.
-- Uses vectored thruster fusion algorithm. More information can be found [here](../../../docs/On-thruster-configuration.md).
-- PID controller for heave and yaw have been implemented for this node. The PID gain values can be changed in the `.yaml` file located in `/path/to/v2_control/config`. The PID gain values are loaded into the parameter server and the gain values will change with `rosparam set` command while the `rov_ctrl` node is running.
-- **Known issue**: Sometimes after executing the *Start/stop traversing* command in the node, the vehicle snaps back to the origin. If it happens, just re-start the whole simulation, everything should be fine. This bug has been eliminated the issue didn't arise for many test runs as per the author's knowledge; but if it occurs, please inform.
+This automatically launches `joy` node for interfacing between the computer and the joystick, and the `joy_control.cpp` node which would convert the inputs from the joystick into command velocity values for the gazebo to decipher.
+
+To run this node without PID controllers, switch to the no-pid branch using the following command:
+```bash 
+git checkout no-pid
+catkin build
+```
+After building the new package, launch the joy_teleop file like usual.
 
 ## Understanding implementation of stoppable and reusable threads
 The following snippet forms the core that is responsible for:
@@ -18,7 +22,7 @@ The following snippet forms the core that is responsible for:
 - Stop the background thread
 - Re-start the background thread
 
-This snippet has been taken from `rov_ctrl.cpp` file. Rest of the code may differ from application to application but for continuos turning ON and OFF of PID controller, the following snippet is a must.
+This snippet has been taken from `joy_control.cpp` file. Rest of the code may differ from application to application but for continuos turning ON and OFF of PID controller, the following snippet is a must.
 ```
 ...
 ...
@@ -105,7 +109,3 @@ int main()
 ...
 
 ```
-
-[Back to inter-package navigation](../../docs/v2_control.md)
-
-[Back to Home](../../docs/Home.md)

@@ -1,5 +1,5 @@
 # About v2_visual
-This package contains all the files that help in visualising the SAUVC-2020 swimming pool and auv_v2 vehicle. It can be independently installed.
+This package contains all the files that help in visualising the custom worlds and the NautiQuest vehicle. It can be independently installed.
 
 ## Commands
 1.  To view a *URDF* model in RViz. 

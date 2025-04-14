@@ -7,7 +7,7 @@
 	<arg name="gui" value="true"/>
 	<arg name="paused" value="true"/>
 	<arg name="use_sim_time" value="true"/>
-	<arg name="world" value="$(find v2_visual)/worlds/sauvc_pool.world"/>
+	<arg name="world" value="$(find v2_visual)/worlds/swimming_pool.world"/>
 	<!-- Launching the world -->
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<arg name="world_name" value="$(arg world)"/>

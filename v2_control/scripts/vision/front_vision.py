@@ -55,8 +55,7 @@ class FrntImgCalib (Thread):
 
 if __name__ == '__main__':
 	# cli argument parser
-	parser = argparse.ArgumentParser(description="Generic rospy node to handle AUV_v2 front vision",
-		epilog="Developed by AUV Society, IIITDM")
+	parser = argparse.ArgumentParser(description="Generic rospy node to handle AUV_v2 front vision")
 
 	# front camera args
 	parser.add_argument("--f_width", type=int, help="Width of the image from front camera | Default: 640",

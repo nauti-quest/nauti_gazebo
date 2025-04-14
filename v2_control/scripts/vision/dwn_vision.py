@@ -52,8 +52,7 @@ class Dwn_imgproc (Thread):
 
 if __name__ == '__main__':
 	# cli argument parser
-	parser = argparse.ArgumentParser(description="Generic rospy node to handle AUV_v2 down vision",
-		epilog="Developed by AUV Society, IIITDM")
+	parser = argparse.ArgumentParser(description="Generic rospy node to handle AUV_v2 down vision")
 
 	# down camera args
 	parser.add_argument("--d_width", type=int, help="Width of the image from down camera | Default: 640",

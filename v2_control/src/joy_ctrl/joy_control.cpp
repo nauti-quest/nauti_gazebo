@@ -20,6 +20,11 @@ private:
     double sway_scale_;
     double heave_scale_;
     double yaw_scale_;
+
+    double surge_velocity_;
+    double sway_velocity_;
+    double heave_velocity_;
+    double yaw_velocity_;
     
     bool is_traversing_;
 
@@ -51,9 +56,14 @@ public:
         // Initial values (same as original)
         v2_.set_xyz_[0] = 0;
         v2_.set_xyz_[1] = 0;
-        v2_.set_xyz_[2] = 0.7;
+        v2_.set_xyz_[2] = 55.0;
         v2_.set_orient_.yaw = 0;
         is_traversing_ = false;
+
+        surge_velocity_ = 0.0;
+        sway_velocity_ = 0.0;
+        heave_velocity_ = 0.0;
+        yaw_velocity_ = 0.0;
         
         ROS_INFO_STREAM("ROV Joystick Controller Initialized");
         ROS_INFO_STREAM("Initial depth value: " << v2_.set_xyz_[2] 
@@ -86,25 +96,34 @@ public:
             ROS_INFO_STREAM("PID configuration reloaded");
         }
         
-        // Update motion commands
-        v2_.set_xyz_[0] += joy->axes[axis_surge_] * surge_scale_;  // Surge
-        v2_.set_xyz_[1] -= joy->axes[axis_sway_] * sway_scale_;    // Sway: Gives negative values
-        v2_.set_xyz_[2] -= joy->axes[axis_heave_] * heave_scale_; // Heave: Gives negative valuesj
+        surge_velocity_ = joy->axes[axis_surge_] * surge_scale_;
+        sway_velocity_ = -joy->axes[axis_sway_] * sway_scale_;   // Negative for correct direction
+        heave_velocity_ += -joy->axes[axis_heave_] * heave_scale_;
+        yaw_velocity_ = -joy->axes[axis_yaw_] * yaw_scale_;
         
-        ROS_INFO_STREAM("Heave: " << v2_.set_xyz_[2] << " | Surge: " << v2_.set_xyz_[0] << " | Sway: " << v2_.set_xyz_[1]);
-        // Update yaw
-        double yaw_command = -joy->axes[axis_yaw_] * yaw_scale_;
-        v2_.set_orient_.yaw += yaw_command;
+        // Update positions based on velocities
+        v2_.set_xyz_[0] = surge_velocity_;  // Direct velocity control
+        v2_.set_xyz_[1] = sway_velocity_;
+        v2_.set_xyz_[2] = heave_velocity_;  // Integrate for depth (0.02s = 50Hz)
+        v2_.set_orient_.yaw = yaw_velocity_;  // Integrate for heading
         
-        // Handle yaw wraparound (same as original)
+        // Keep the same boundary checks
+        if (v2_.set_xyz_[2] < 0) {
+            v2_.set_xyz_[2] = 0;
+        }
+        
+        // Handle yaw wraparound
         if (v2_.set_orient_.yaw >= 180.01) {
             v2_.set_orient_.yaw = -(360 - v2_.set_orient_.yaw);
         }
         else if (v2_.set_orient_.yaw <= -179.9) {
             v2_.set_orient_.yaw = 180;
         }
-
-        ROS_INFO_STREAM("Yaw command: " << v2_.set_orient_.yaw << " temporary yaw: " << v2_.cur_orient_.yaw << " yaw_command: " << yaw_command);
+        
+        ROS_INFO_STREAM("Velocities - Surge: " << surge_velocity_ 
+            << " | Sway: " << sway_velocity_ 
+            << " | Heave: " << heave_velocity_
+            << " | Yaw: " << yaw_velocity_);
         // Ensure heave doesn't go negative (same as original)
         if (v2_.set_xyz_[2] < 0) {
             v2_.set_xyz_[2] = 0;
