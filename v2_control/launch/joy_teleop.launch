@@ -14,7 +14,7 @@
         <!-- Scale factors -->
         <param name="surge_scale" value="75.0"/>
         <param name="sway_scale" value="50.0"/>
-        <param name="heave_scale" value="5.0"/>
+        <param name="heave_scale" value="1.0"/>
         <param name="yaw_scale" value="20.0"/>
     </node>
 </launch>

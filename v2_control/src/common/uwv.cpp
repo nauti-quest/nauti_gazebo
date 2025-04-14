@@ -222,7 +222,7 @@ void UWV::run(){
       continue;
     heavePid2Effort(depth_controller_.update(set_xyz_[2], cur_xyz_[2], dt));
     vectoredPid2Effort(set_xyz_[0],
-                       set_orient_.yaw,
+                       yaw_controller_.update(set_orient_.yaw, cur_orient_.yaw, dt),
                        set_xyz_[1]);
     sendCommands();
 
