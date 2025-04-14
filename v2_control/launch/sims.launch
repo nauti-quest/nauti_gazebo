@@ -15,7 +15,7 @@
 	<rosparam file="$(find v2_control)/config/pid_gains.yaml" ns="auv_v2"/>
 	
 	<group ns="$(arg model_name)">
-      <node name="rviz" pkg="rviz" type="rviz"  args="-d $(find v2_visual)/config/sauvc-game.rviz" output="screen" if="$(arg use_rviz)"/>
+      <node name="rviz" pkg="rviz" type="rviz"  args="-d $(find v2_visual)/config/nautiquest.rviz" output="screen" if="$(arg use_rviz)"/>
 	</group>
 	
 </launch>

@@ -56,7 +56,7 @@ public:
         // Initial values (same as original)
         v2_.set_xyz_[0] = 0;
         v2_.set_xyz_[1] = 0;
-        v2_.set_xyz_[2] = 0.7;
+        v2_.set_xyz_[2] = 55.0;
         v2_.set_orient_.yaw = 0;
         is_traversing_ = false;
 
@@ -98,7 +98,7 @@ public:
         
         surge_velocity_ = joy->axes[axis_surge_] * surge_scale_;
         sway_velocity_ = -joy->axes[axis_sway_] * sway_scale_;   // Negative for correct direction
-        heave_velocity_ = -joy->axes[axis_heave_] * heave_scale_;
+        heave_velocity_ += -joy->axes[axis_heave_] * heave_scale_;
         yaw_velocity_ = -joy->axes[axis_yaw_] * yaw_scale_;
         
         // Update positions based on velocities
